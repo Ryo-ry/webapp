@@ -11,13 +11,17 @@
 //-------モーダル---------
 const modal = document.querySelector('.modal-container');
 const modalClose = document.querySelector('.js-close');
+const maindayo = document.querySelector('.main');
+
 function showModal() {
     modal.style.display="block";
+    maindayo.classList.add('main__none');
 }
 modalClose.addEventListener('click',closeModal);
 function closeModal(){
     modal.style.display ="none";
     location.reload();
+    maindayo.classList.remove('main__none');
 }
 
 //ここから
@@ -34,7 +38,9 @@ link_share.addEventListener('click',(event)=>{
     formRapper.innerHTML ="";
     document.querySelector('.js-record').style.display ="none";
     const loading_back = document.createElement('div');
+    
     loading_back.id='loading__back';
+    
     formRapper.appendChild(loading_back);
     const loading__front = document.createElement('div');
     loading__front.id = 'loading__front';
@@ -109,8 +115,34 @@ function drawChart1(){
         vAxis: {
             format:"#h",
             ticks:[0,2,4,6,8],
-            
         },
+        // scales:{
+        //     yAxes:{
+        //         grid:{
+        //             display: false,
+        //         }
+        //     }
+        // },
+        // grid: {
+        //     yAxis: {
+        //         lines: {
+        //             show: false 
+        //         },
+        //     },
+        // }
+        scales:{
+            yAxes: [{
+                display: true,
+                gridLines: {
+                    display: false,
+                    drawBorder: false
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Value'
+                }
+            }]
+        }
     }
     const chart = new google.visualization.ColumnChart(
         document.getElementById('chart__div')
@@ -148,7 +180,7 @@ function drawChart(){
         pieSliceTextStyle:{fontSize:15},
         pieHole:0.4,
         backgroundColor:"transparent",
-        chartArea:{width:"100%",height:"100%"},
+        chartArea:{width:"90%",height:"100%"},
     };
 
 

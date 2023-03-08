@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../webapp/css/reset.css" />
-    <link rel="stylesheet" href="../webapp/css/style.css" />
+    <link rel="stylesheet" href="../webapp/css/style.css">
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
       defer
@@ -17,7 +17,7 @@
   </head>
   <body>
     <!--ヘッダー-->
-    <header>
+    <header class="header">
       <div class="header-logo">
         <img src="../webapp/images/logo.svg" alt="ロゴ" />
         <p class="now__week">4thWeek</p>
@@ -35,7 +35,7 @@
       <div class="overLay"></div>
       <!--モーダルウィンドウ-->
       <div class="modal-window">
-        <div class="js-close button-close">✖</div>
+        <div class="js-close button-close close icon"></div>
         <div id="formRapper">
           <!--モーダルの左側-->
           <div id="form-1">
@@ -85,7 +85,7 @@
                 </div>
                 <div class="checkbox">
                   <input type="checkbox" id="sqr" />
-                  <label for="sqr">SQR</label>
+                  <label for="sqr">SQL</label>
                 </div>
                 <div class="checkbox">
                   <input type="checkbox" id="shell" />
@@ -131,13 +131,13 @@
       <!--ここまでモーダルウィンドウ-->
     </div>
 <!-----------ドリルの内容使えるところ多々あり--------------->
-    <main>
+    <main class="main">
       <!--全体パート-->
       <div class="container">
         <!--左-->
         <div class="left-container">
           <!--左上の3つ-->
-          <div>
+          <!-- <div> -->
             <ul class="study-hours">
               <li class="white-box">
                 <p>Today</p>
@@ -155,7 +155,7 @@
                 <p>hour</p>
               </li>
             </ul>
-          </div>
+          <!-- </div> -->
           <!--グラフ-->
           <div class="white-box bar__graph">
             <div id="chart__div" style="width: 100%; height: 250px">
@@ -207,4 +207,30 @@
         </div>
       </div>
     </main>
+
+    <!--------エラー画面---------->
+    <!-- <section class="error__section">
+      <div>
+        <div>
+          ERROR
+        </div>
+        <div class="plus icon">
+          
+        </div>
+        <div>
+          <p>一時的にご利用いただけない状態です<br>
+            しばらく経ってから<br>
+            再度アクセスしてください。
+          </p>
+        </div>
+      </div>
+    </section> -->
+    <footer>
+      <div>＜ 2022年10月22日 ＞</div>
+      <div class="responsive-button">
+        <button onclick="showModal()" class="js-open button-design button-pc">
+          記録・投稿
+        </button>
+      </div>
+    </footer>
 </html>
