@@ -482,9 +482,12 @@ input[type=checkbox]:checked + label::before {
         overflow: hidden;
         margin: 0 10px 30px 0;
     }
-    .main__none {
+    .main__display {
         display: none;
     }
+    /* .body__display {
+        overflow: hidden;
+    } */
     header .button-design {
         display: none;
     }

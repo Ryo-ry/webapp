@@ -15,13 +15,13 @@ const maindayo = document.querySelector('.main');
 
 function showModal() {
     modal.style.display="block";
-    maindayo.classList.add('main__none');
+    maindayo.classList.add('main__display');
 }
 modalClose.addEventListener('click',closeModal);
 function closeModal(){
     modal.style.display ="none";
     location.reload();
-    maindayo.classList.remove('main__none');
+    maindayo.classList.remove('main__display');
 }
 
 //ここから
@@ -115,11 +115,15 @@ function drawChart1(){
         vAxis: {
             format:"#h",
             ticks:[0,2,4,6,8],
+            gridlines:{
+                color:'transparent',
+            }
         },
+        
         // scales:{
         //     yAxes:{
         //         grid:{
-        //             display: false,
+        //             display:false,
         //         }
         //     }
         // },
@@ -130,19 +134,19 @@ function drawChart1(){
         //         },
         //     },
         // }
-        scales:{
-            yAxes: [{
-                display: true,
-                gridLines: {
-                    display: false,
-                    drawBorder: false
-                },
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Value'
-                }
-            }]
-        }
+        // scales:{
+        //     yAxes: [{
+        //         display: true,
+        //         gridLines: {
+        //             display: false,
+        //             drawBorder: false
+        //         },
+        //         scaleLabel: {
+        //             display: true,
+        //             labelString: 'Value'
+        //         }
+        //     }]
+        // }
     }
     const chart = new google.visualization.ColumnChart(
         document.getElementById('chart__div')
