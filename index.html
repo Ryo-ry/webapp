@@ -1,0 +1,236 @@
+<!--alt + ctrl + f-->
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
+      defer
+    ></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="/script.js" defer></script>
+  </head>
+  <body class="body">
+    <!--ヘッダー-->
+    <header class="header">
+      <div class="header-logo">
+        <img src="/images/logo.svg" alt="ロゴ" />
+        <p class="now__week">4thWeek</p>
+      </div>
+      <div>
+        <button onclick="showModal()" class="js-open button-design button-pc">
+          記録・投稿
+        </button>
+      </div>
+    </header>
+    <!--ここまでヘッダー-->
+    <!--モーダル-->
+    <div class="modal-container">
+      <!--オーバーレイ-->
+      <div class="overLay"></div>
+      <!--モーダルウィンドウ-->
+      <div class="modal-window">
+        <div class="js-close button-close close icon"></div>
+        <div id="formRapper">
+          <!--モーダルの左側-->
+          <div id="form-1">
+            <div>
+              <p class="record_title">学習日</p>
+              <input type="date" class="text"/>
+            </div>
+            <div>
+              <p class="record__title">学習コンテンツ（複数選択可）</p>
+              <div class="checkbox__container">
+                <div class="checkbox">
+                  <input type="checkbox" id="N" />
+                  <label for="N">予備校</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="dotInstall" />
+                  <label for="dotInstall">ドットインストール</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="POSSE" />
+                  <label for="POSSE">POSSE課題</label>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="record__title">学習言語（複数選択可）</p>
+              <div class="checkbox__container">
+                <div class="checkbox">
+                  <input type="checkbox" id="html" />
+                  <label for="html">HTML</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="css" />
+                  <label for="css">css</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="js" />
+                  <label for="js">JavaScript</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="php" />
+                  <label for="php">PHP</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="laravel" />
+                  <label for="laravel">Laravel</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="sqr" />
+                  <label for="sqr">SQL</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="shell" />
+                  <label for="shell">SHELL</label>
+                </div>
+                <div class="checkbox">
+                  <input type="checkbox" id="info" />
+                  <label for="info">情報システム基礎知識（その他）</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--ここまでモーダルの左-->
+          <!--モーダルの右側-->
+          <div id="form-2">
+            <div>
+              <p>学習時間</p>
+              <input type="time" class="text" />
+            </div>
+            <div>
+              <p>Twitter用コメント</p>
+              <textarea
+                id="twitterMessage"
+                maxlength="140"
+                class="textarea"
+              ></textarea>
+            </div>
+            <div class="shareButton">
+              <input type="checkbox" id="share" value="share" />
+              <label for="share">Twitterにシェアする</label>
+            </div>
+          </div>
+        </div>
+        <!--ここまでモーダルの右-->
+        <div class="submit ">
+          <a href="" target="blank" id="link_share">
+            <button type="button" class="button-design button-modal js-record">
+              記録・投稿
+            </button>
+          </a>
+        </div>
+      </div>
+      <!--ここまでモーダルウィンドウ-->
+    </div>
+<!-----------ドリルの内容使えるところ多々あり--------------->
+    <main class="main">
+      <!--全体パート-->
+      <div class="container">
+        <!--左-->
+        <div class="left-container">
+          <!--左上の3つ-->
+          <!-- <div> -->
+            <ul class="study-hours">
+              <li class="white-box">
+                <p>Today</p>
+                <p>3</p>
+                <p>hour</p>
+              </li>
+              <li class="white-box">
+                <p>Month</p>
+                <p>120</p>
+                <p>hour</p>
+              </li>
+              <li class="white-box">
+                <p>Total</p>
+                <p>1348</p>
+                <p>hour</p>
+              </li>
+            </ul>
+          <!-- </div> -->
+          <!--グラフ-->
+          <div class="white-box bar__graph">
+            <div id="chart__div" style="width: 100%; height: 250px">
+              棒グラフ
+            </div>
+          </div>
+        </div>
+        <!--右のパート-->
+        <div class="right-container">
+          <!-- <div class="donuts"> -->
+          <!--学習言語パート-->
+          <div class="white-box">
+            <p>学習言語</p>
+            <div class="chartBox">
+              <div class="chart-container">
+                <div id="study_language_chart" class="chart"></div>
+              </div>
+              <div class="regend study_language_chart_regend">
+                <ul>
+                  <li><span></span>HTML</li>
+                  <li><span></span>CSS</li>
+                  <li><span></span>JavaScript</li>
+                  <li><span></span>PHP</li>
+                  <li><span></span>Laravel</li>
+                  <li><span></span>SQL</li>
+                  <li><span></span>SHELL</li>
+                  <li><span></span>情報システム基礎知識（その他）</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--学習コンテンツパート-->
+          <div class="white-box">
+            <p>学習コンテンツ</p>
+            <div class="chartBox">
+              <div class="chart-container">
+                <div id="study_contents_chart" class="chart"></div>
+              </div>
+              <div class="regend study_contents_chart_regend">
+                <ul>
+                  <li><span></span>ドットインストール</li>
+                  <li><span></span>N予備校</li>
+                  <li><span></span>POSSE課題</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </main>
+
+    <!--------エラー画面---------->
+    <!-- <section class="error__section">
+      <div>
+        <div>
+          ERROR
+        </div>
+        <div class="plus icon">
+          
+        </div>
+        <div>
+          <p>一時的にご利用いただけない状態です<br>
+            しばらく経ってから<br>
+            再度アクセスしてください。
+          </p>
+        </div>
+      </div>
+    </section> -->
+    <footer>
+      <div>＜ 2022年10月22日 ＞</div>
+      <div class="responsive-button">
+        <button onclick="showModal()" class="js-open button-design button-pc">
+          記録・投稿
+        </button>
+      </div>
+    </footer>
+</html>
